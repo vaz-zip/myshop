@@ -10,8 +10,8 @@ class Category(models.Model):
     indexes = [
       models.Index(fields=['name']),
       ]
-    verbose_name = 'category'
-    verbose_name_plural = 'categories'
+    verbose_name = 'Категория'
+    verbose_name_plural = 'Категории'
 
   def __str__(self):
     return self.name
@@ -35,6 +35,8 @@ class Product(models.Model):
       models.Index(fields=['name']),
       models.Index(fields=['-created']),
       ] 
+    verbose_name = 'Товар'
+    verbose_name_plural = 'Товары'
   def __str__(self):
     return self.name
 
