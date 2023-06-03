@@ -9,7 +9,7 @@ class Order(models.Model):
     email = models.EmailField(verbose_name='Email')
     address = models.CharField(max_length=64, verbose_name='Адрес')
     postal_code = models.CharField(max_length=16, verbose_name='Индекс')
-    city = models.CharField(max_length=32, validators='Регион')
+    city = models.CharField(max_length=32, verbose_name='Регион')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Создан')
     updated = models.DateTimeField(auto_now_add=True, verbose_name='Скорректирован')
     paid = models.BooleanField(default=False, verbose_name='Оплачен')
@@ -26,4 +26,17 @@ class Order(models.Model):
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all())   
 
-# Create your models here.
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE, verbose_name='Заказ')
+    product = models.ForeignKey(Product, related_name='order_items', on_delete=models.CASCADE, verbose_name='Товар')
+    price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='Цена')
+    quantity = models.PositiveIntegerField(default=1, verbose_name='Количество')
+
+
+    def __str__(self):
+        return str(self.id)
+    
+
+    def get_coast(self):
+        return self.price * self.quantity
+
