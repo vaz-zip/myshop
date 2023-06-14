@@ -37,6 +37,6 @@ class OrderItem(models.Model):
         return str(self.id)
     
 
-    def get_coast(self):
+    def get_cost(self):
         return self.price * self.quantity
 
