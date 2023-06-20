@@ -1,20 +1,20 @@
 <html>
 <body>
- <h1>My Shop</h1>
+ <h1>Продукты</h1>
  <p>
  Накладная №{{ order.id }}<br>
  <span class="secondary">
  {{ order.created|date:"M d, Y" }}
  </span>
  </p>
- <h3>Bill to</h3>
+ <h3>Счёт</h3>
  <p>
  {{ order.first_name }} {{ order.last_name }}<br>
  {{ order.email }}<br>
  {{ order.address }}<br>
  {{ order.postal_code }}, {{ order.city }}
  </p>
- <h3>Items bought</h3>
+ <h3>Ваши покупки</h3>
  <table>
  <thead>
  <tr>
@@ -40,7 +40,7 @@
 </tbody>
 </table>
 <span class="{% if order.paid %}paid{% else %}pending{% endif %}">
-{% if order.paid %}Paid{% else %}Pending payment{% endif %}
+{% if order.paid %}Оплачен{% else %}Ожидание оплаты{% endif %}
 </span>
 </body>
 </html>
