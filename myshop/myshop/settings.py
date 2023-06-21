@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -145,3 +145,8 @@ STRIPE_PUBLISHABLE_KEY = 'pk_test_51NHHp9D8zBcijSDGTA2GCXC8SmM9GX8UafFhLpn5GPhuP
 STRIPE_SECRET_KEY = 'sk_test_51NHHp9D8zBcijSDGmXdQEA0Do8urJuhxPjNmNmITQTdAcfdgVRGiwK6rJheBKfyE3SOLgEkkpbIt3Nj86PIyFOcO00Y1ucovmR' # Секретный ключ
 STRIPE_API_VERSION = '2022-11-15'
 STRIPE_WEBHOOK_SECRET = 'whsec_d62b251e7b44a00a09fe598847284e8f59f3d0be5cbe6873d31d7ef17fa408ab'
+
+# Redis settings
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
